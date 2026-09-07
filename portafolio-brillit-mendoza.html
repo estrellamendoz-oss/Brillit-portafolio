@@ -1,654 +1,1264 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brillit Mendoza Sánchez — Portafolio</title>
-<meta name="description" content="Portafolio de Brillit Mendoza Sánchez — Marketing digital, contenido y análisis de datos.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --paper:#F5F6F1;
-    --paper-alt:#EDEFE6;
-    --ink:#14181B;
-    --muted:#6E7266;
-    --accent:#FF4D6D;
-    --line:#DBDDD2;
-    --maxw:920px;
-  }
-
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
-  }
-
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Inter',system-ui,sans-serif;
-    font-size:16px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-
-  a{color:inherit;}
-  a:focus-visible, button:focus-visible{
-    outline:2px solid var(--accent);
-    outline-offset:3px;
-  }
-
-  .wrap{
-    max-width:var(--maxw);
-    margin:0 auto;
-    padding:0 28px;
-  }
-
-  h1,h2,h3{
-    font-family:'Space Grotesk',sans-serif;
-    margin:0;
-    letter-spacing:-0.01em;
-  }
-
-  .mono{
-    font-family:'JetBrains Mono',monospace;
-  }
-
-  .eyebrow{
-    font-family:'JetBrains Mono',monospace;
-    font-size:12px;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:var(--accent);
-    font-weight:600;
-    display:flex;
-    align-items:center;
-    gap:8px;
-    margin-bottom:18px;
-  }
-  .eyebrow::before{
-    content:"";
-    width:14px;
-    height:2px;
-    background:var(--accent);
-    display:inline-block;
-  }
-
-  /* NAV */
-  header{
-    position:sticky;
-    top:0;
-    z-index:50;
-    background:rgba(245,246,241,0.86);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
-  }
-  nav.wrap{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    height:64px;
-  }
-  .logo{
-    font-family:'JetBrains Mono',monospace;
-    font-weight:600;
-    font-size:15px;
-    letter-spacing:0.02em;
-    text-decoration:none;
-  }
-  .navlinks{
-    display:flex;
-    gap:28px;
-    list-style:none;
-    margin:0;
-    padding:0;
-  }
-  .navlinks a{
-    text-decoration:none;
-    font-size:14px;
-    font-weight:500;
-    color:var(--ink);
-    position:relative;
-    padding-bottom:4px;
-  }
-  .navlinks a::after{
-    content:"";
-    position:absolute;
-    left:0; bottom:0;
-    width:0%;
-    height:1.5px;
-    background:var(--accent);
-    transition:width .25s ease;
-  }
-  .navlinks a:hover::after{width:100%;}
-  .nav-cta{
-    font-family:'JetBrains Mono',monospace;
-    font-size:13px;
-    font-weight:500;
-    text-decoration:none;
-    border:1px solid var(--ink);
-    padding:8px 14px;
-    border-radius:2px;
-    transition:background .2s ease,color .2s ease;
-    white-space:nowrap;
-  }
-  .nav-cta:hover{background:var(--ink);color:var(--paper);}
-  @media (max-width:760px){
-    .navlinks{display:none;}
-  }
-
-  /* HERO */
-  .hero{
-    padding:96px 0 64px;
-  }
-  .hero h1{
-    font-size:clamp(40px,7vw,76px);
-    font-weight:700;
-    line-height:1.02;
-    margin-bottom:20px;
-  }
-  .hero .role{
-    font-family:'JetBrains Mono',monospace;
-    color:var(--accent);
-  }
-  .hero p.lede{
-    max-width:560px;
-    font-size:18px;
-    color:var(--muted);
-    margin:0 0 44px;
-  }
-
-  .kpis{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:24px;
-    max-width:640px;
-    margin-bottom:48px;
-  }
-  .kpi{
-    border-top:2px solid var(--accent);
-    padding-top:12px;
-  }
-  .kpi .num{
-    font-family:'JetBrains Mono',monospace;
-    font-weight:700;
-    font-size:clamp(24px,4vw,34px);
-    display:block;
-    line-height:1;
-  }
-  .kpi .label{
-    font-size:12px;
-    color:var(--muted);
-    margin-top:8px;
-    display:block;
-    letter-spacing:0.02em;
-  }
-  @media (max-width:600px){
-    .kpis{grid-template-columns:1fr 1fr;}
-  }
-
-  .contact-row{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px 22px;
-    font-size:14px;
-  }
-  .contact-row a{
-    text-decoration:none;
-    border-bottom:1px solid var(--line);
-    padding-bottom:2px;
-    transition:border-color .2s ease, color .2s ease;
-  }
-  .contact-row a:hover{border-color:var(--accent); color:var(--accent);}
-
-  /* SECTIONS */
-  section{
-    border-top:1px solid var(--line);
-    padding:64px 0;
-    opacity:1;
-    transform:none;
-  }
-  section.reveal{
-    opacity:0;
-    transform:translateY(16px);
-    transition:opacity .6s ease, transform .6s ease;
-  }
-  section.reveal.is-visible{
-    opacity:1;
-    transform:translateY(0);
-  }
-
-  .section-head{
-    display:flex;
-    align-items:baseline;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-bottom:36px;
-  }
-  .section-head h2{
-    font-size:clamp(24px,3.4vw,32px);
-    font-weight:600;
-  }
-
-  /* SOBRE MI */
-  #sobre-mi p{
-    max-width:640px;
-    font-size:17px;
-    color:var(--ink);
-  }
-
-  /* EXPERIENCIA */
-  .job{
-    display:grid;
-    grid-template-columns:160px 1fr;
-    gap:32px;
-  }
-  .job .date{
-    font-family:'JetBrains Mono',monospace;
-    font-size:13px;
-    color:var(--muted);
-    white-space:nowrap;
-  }
-  .job h3{
-    font-size:20px;
-    font-weight:600;
-    margin-bottom:2px;
-  }
-  .job .org{
-    color:var(--muted);
-    font-size:14px;
-    margin-bottom:18px;
-  }
-  .job ul{
-    margin:0;
-    padding-left:18px;
-  }
-  .job li{
-    margin-bottom:10px;
-    max-width:560px;
-  }
-  @media (max-width:640px){
-    .job{grid-template-columns:1fr;gap:8px;}
-  }
-
-  /* PROYECTOS */
-  .projects{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:36px;
-  }
-  .project{
-    border-top:1px solid var(--line);
-    padding-top:20px;
-    transition:border-color .25s ease;
-  }
-  .project:hover{border-top-color:var(--accent);}
-  .project .tag{
-    font-family:'JetBrains Mono',monospace;
-    font-size:11px;
-    text-transform:uppercase;
-    letter-spacing:0.1em;
-    color:var(--muted);
-    margin-bottom:10px;
-    display:block;
-  }
-  .project h3{
-    font-size:18px;
-    font-weight:600;
-    margin-bottom:4px;
-  }
-  .project .org{
-    font-size:13px;
-    color:var(--muted);
-    margin-bottom:14px;
-  }
-  .project ul{
-    margin:0;
-    padding-left:18px;
-    font-size:14.5px;
-  }
-  .project li{margin-bottom:8px;}
-
-  .bars{
-    display:flex;
-    align-items:flex-end;
-    gap:4px;
-    height:34px;
-    margin:16px 0 4px;
-  }
-  .bars span{
-    width:6px;
-    background:var(--accent);
-    opacity:0.85;
-    border-radius:1px;
-  }
-
-  @media (max-width:640px){
-    .projects{grid-template-columns:1fr;}
-  }
-
-  /* HABILIDADES */
-  .skills-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:32px;
-  }
-  .skill-col .label{
-    font-family:'JetBrains Mono',monospace;
-    font-size:11px;
-    text-transform:uppercase;
-    letter-spacing:0.1em;
-    color:var(--accent);
-    margin-bottom:14px;
-    display:block;
-  }
-  .skill-col ul{
-    list-style:none;
-    margin:0;
-    padding:0;
-    font-size:14.5px;
-  }
-  .skill-col li{
-    padding:7px 0;
-    border-top:1px solid var(--line);
-  }
-  .skill-col li:first-child{border-top:none;}
-  @media (max-width:760px){
-    .skills-grid{grid-template-columns:1fr 1fr;row-gap:36px;}
-  }
-
-  /* EDUCACION */
-  .edu-item{
-    display:grid;
-    grid-template-columns:160px 1fr;
-    gap:32px;
-    margin-bottom:24px;
-  }
-  .edu-item:last-child{margin-bottom:0;}
-  .edu-item .date{
-    font-family:'JetBrains Mono',monospace;
-    font-size:13px;
-    color:var(--muted);
-  }
-  .edu-item h3{font-size:16.5px;font-weight:600;margin-bottom:2px;}
-  .edu-item .org{font-size:14px;color:var(--muted);}
-  @media (max-width:640px){
-    .edu-item{grid-template-columns:1fr;gap:6px;}
-  }
-
-  /* CERTIFICACIONES */
-  .certs{
-    list-style:none;
-    margin:0;
-    padding:0;
-    font-size:14.5px;
-  }
-  .certs li{
-    display:flex;
-    justify-content:space-between;
-    gap:16px;
-    padding:12px 0;
-    border-top:1px solid var(--line);
-  }
-  .certs li:first-child{border-top:none;}
-  .certs .issuer{
-    color:var(--muted);
-    text-align:right;
-    white-space:nowrap;
-  }
-
-  /* CONTACTO */
-  #contacto{
-    padding-bottom:80px;
-  }
-  #contacto .big-link{
-    font-family:'Space Grotesk',sans-serif;
-    font-size:clamp(26px,5vw,46px);
-    font-weight:600;
-    text-decoration:none;
-    display:inline-block;
-    border-bottom:2px solid var(--accent);
-    margin:6px 0 32px;
-  }
-  #contacto .meta{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px 26px;
-    font-size:14px;
-    color:var(--muted);
-  }
-  #contacto .meta a{
-    color:var(--muted);
-    text-decoration:none;
-  }
-  #contacto .meta a:hover{color:var(--accent);}
-
-  footer{
-    border-top:1px solid var(--line);
-    padding:28px 0 40px;
-    font-size:12.5px;
-    color:var(--muted);
-    font-family:'JetBrains Mono',monospace;
-  }
-</style>
-</head>
-<body>
-
-<header>
-  <nav class="wrap">
-    <a class="logo" href="#top">B·M</a>
-    <ul class="navlinks">
-      <li><a href="#sobre-mi">Sobre mí</a></li>
-      <li><a href="#experiencia">Experiencia</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#habilidades">Habilidades</a></li>
-    </ul>
-    <a class="nav-cta" href="#contacto">Contacto ↗</a>
-  </nav>
-</header>
-
-<main>
-
-  <section class="hero wrap" id="top">
-    <p class="eyebrow">Egresada · Administración y Marketing · Lima, Perú</p>
-    <h1>Brillit Mendoza Sánchez<br><span class="role">/ marketing digital &amp; datos</span></h1>
-    <p class="lede">Diseño contenido y estrategias digitales, y convierto datos en dashboards claros. Formación en Administración y Marketing con experiencia real en redes sociales, publicidad digital y análisis de información.</p>
-
-    <div class="kpis">
-      <div class="kpi">
-        <span class="num mono">2+</span>
-        <span class="label">Años de experiencia</span>
-      </div>
-      <div class="kpi">
-        <span class="num mono">5</span>
-        <span class="label">Herramientas de diseño y datos</span>
-      </div>
-      <div class="kpi">
-        <span class="num mono">7</span>
-        <span class="label">Certificaciones</span>
-      </div>
-    </div>
-
-    <div class="contact-row">
-      <a href="mailto:estrellamendoz@gmail.com">estrellamendoz@gmail.com</a>
-      <a href="tel:+51908790434">+51 908 790 434</a>
-      <a href="https://www.linkedin.com/in/brillit-mendoza-sanchez-309331150" target="_blank" rel="noopener">LinkedIn</a>
-      <span>Lima, Perú</span>
-    </div>
-  </section>
-
-  <section class="wrap reveal" id="sobre-mi">
-    <p class="eyebrow">Sobre mí</p>
-    <p>Egresada de Administración y Marketing con sólida formación en publicidad digital y análisis de datos. Tengo experiencia en gestión de redes sociales y diseño gráfico, y destaco por mi capacidad para desarrollar dashboards interactivos y estrategias de contenido visual que optimizan el posicionamiento de marca y la interacción con la audiencia.</p>
-  </section>
-
-  <section class="wrap reveal" id="experiencia">
-    <div class="section-head">
-      <h2>Experiencia</h2>
-    </div>
-    <div class="job">
-      <span class="date mono">Ene 2024 — Abr 2026</span>
-      <div>
-        <h3>Asistente de Administración y Marketing</h3>
-        <p class="org">Inversiones Te &amp; B S.R.L. — Sector retail</p>
-        <ul>
-          <li>Brindé soporte en procesos administrativos: pagos a AFP y organización de documentación.</li>
-          <li>Diseñé contenido gráfico y audiovisual para Instagram y TikTok, aplicando estrategias de marketing digital con Canva, ElevenLabs e inteligencia artificial.</li>
-          <li>Desarrollé landing pages y apoyé en la gestión de contenido digital orientado a la interacción con los usuarios.</li>
-          <li>Apoyé en programar publicaciones, responder comentarios y monitorear la comunidad.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="wrap reveal" id="proyectos">
-    <div class="section-head">
-      <h2>Proyectos y liderazgo</h2>
-    </div>
-    <div class="projects">
-      <div class="project">
-        <span class="tag">Análisis de datos</span>
-        <h3>Taller de Power BI</h3>
-        <p class="org">1122Lab, en colaboración con UPN</p>
-        <div class="bars" aria-hidden="true">
-          <span style="height:40%"></span>
-          <span style="height:70%"></span>
-          <span style="height:55%"></span>
-          <span style="height:100%"></span>
-          <span style="height:65%"></span>
-        </div>
-        <ul>
-          <li>Desarrollé dashboards interactivos para visualizar indicadores clave de gestión.</li>
-          <li>Ejecuté modelado de datos y análisis de información para reportes estratégicos.</li>
-          <li>Implementé limpieza y transformación de datos para tableros precisos.</li>
-        </ul>
-      </div>
-      <div class="project">
-        <span class="tag">Oct 2025 — Actual</span>
-        <h3>Comisionada en AIDA</h3>
-        <p class="org">Organización Estudiantil de Marketing — UPN</p>
-        <ul>
-          <li>Gestioné integralmente el contenido y las redes sociales de la organización, investigando tendencias y audiencia para desarrollar publicaciones estratégicas.</li>
-          <li>Diseñé piezas gráficas para fomentar la participación de los estudiantes de marketing.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="wrap reveal" id="habilidades">
-    <div class="section-head">
-      <h2>Habilidades</h2>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-col">
-        <span class="label">Software</span>
-        <ul>
-          <li>Microsoft Excel</li>
-          <li>Power BI</li>
-          <li>Adobe Photoshop</li>
-          <li>Adobe Illustrator</li>
-          <li>Canva</li>
-        </ul>
-      </div>
-      <div class="skill-col">
-        <span class="label">Gestión</span>
-        <ul>
-          <li>Gestión de redes sociales</li>
-          <li>Marketing digital</li>
-          <li>Publicidad digital</li>
-          <li>Análisis de datos</li>
-        </ul>
-      </div>
-      <div class="skill-col">
-        <span class="label">Inteligencia artificial</span>
-        <ul>
-          <li>ChatGPT</li>
-          <li>Claude</li>
-          <li>Gemini</li>
-          <li>ElevenLabs</li>
-        </ul>
-      </div>
-      <div class="skill-col">
-        <span class="label">Idiomas</span>
-        <ul>
-          <li>Inglés — Intermedio</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="wrap reveal" id="educacion">
-    <div class="section-head">
-      <h2>Educación</h2>
-    </div>
-    <div class="edu-item">
-      <span class="date mono">2021 — 2026</span>
-      <div>
-        <h3>Administración y Marketing</h3>
-        <p class="org">Universidad Privada del Norte — Pregrado, egresada</p>
-      </div>
-    </div>
-    <div class="edu-item">
-      <span class="date mono">2023 — Actual</span>
-      <div>
-        <h3>Inglés</h3>
-        <p class="org">Asociación Cultural Peruano Británica</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="wrap reveal" id="certificaciones">
-    <div class="section-head">
-      <h2>Certificaciones</h2>
-    </div>
-    <ul class="certs">
-      <li><span>Construcción de una marca</span><span class="issuer">Fundación Telefónica Movistar</span></li>
-      <li><span>Excel intermedio</span><span class="issuer">Grupo Romero / UPC</span></li>
-      <li><span>Gestión de redes sociales</span><span class="issuer">AIDA</span></li>
-      <li><span>Excel, Word, PowerPoint</span><span class="issuer">Cetpro Promae</span></li>
-      <li><span>Masterclass de Marketing Digital</span><span class="issuer">Centro de Especialización Digital</span></li>
-      <li><span>Digital Ad Certificate</span><span class="issuer">Digital Ad Expert by Aleph</span></li>
-      <li><span>Publicidad en redes sociales</span><span class="issuer">Santander Open Academy</span></li>
-    </ul>
-  </section>
-
-  <section class="wrap reveal" id="contacto">
-    <p class="eyebrow">Contacto</p>
-    <h2 style="font-size:clamp(22px,3.6vw,30px);font-weight:600;margin-bottom:4px;">¿Conversamos sobre una oportunidad?</h2>
-    <a class="big-link" href="mailto:estrellamendoz@gmail.com">estrellamendoz@gmail.com</a>
-    <div class="meta">
-      <a href="tel:+51908790434">+51 908 790 434</a>
-      <a href="https://www.linkedin.com/in/brillit-mendoza-sanchez-309331150" target="_blank" rel="noopener">linkedin.com/in/brillit-mendoza-sanchez</a>
-      <span>Lima, Perú</span>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="wrap">© 2026 Brillit Mendoza Sánchez — Lima, Perú</div>
-</footer>
-
-<script>
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){
-          e.target.classList.add('is-visible');
-          io.unobserve(e.target);
+<!doctype html>
+<html lang="es"><head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260907-05-0068bad","C":{"Abril Fatface":"YACgEZbkUVE,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo":"YAHO2-t-jNE,0","Arial":"YAGyDvJ_4Ts,0","Bebas Neue":"YACgESME5ew,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Canva Sans":"YAFLd8sKbwc,2","Caveat":"YALBs2ploWQ,0","Comic Sans MS":"YAHO2VMiyZo,0","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAEul-FRQw4,0","Georgia":"YAGzXkO0pEM,0","Helvetica Neue":"YAFcf6CtJfI,0","Impact":"YAFcfnjI7Vk,0","Inter":"YAFdJvSyp_k,3","Iowan Old Style":"YAGNIFa8j9o,0","Jacques Francois":"YAHO2a5g66Q,0","JetBrains Mono":"YAFdJksXcAk,0","Libre Baskerville":"YACgEUFdPdA,0","Manrope":"YAHO2b2feC4,0","Merriweather":"YACgEXvHxxs,0","Montserrat":"YADLjI9qxTA,0","Nunito":"YACgEX8C5Gg,0","Oleo Script":"YACgEQQ14jI,0","Phantom Sans":"YAHO2E8Pb88,0","Playfair Display":"YACgEYmuCJE,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Quicksand":"YADWjpfPmdk,0","Raleway":"YACgEVg3xZg,0","Segoe UI":"YAHNdRD1Klw,0","Source Sans 3":"YAG4lO1Mj10,0","Spectral":"YAHO2rVUHIM,0","Times New Roman":"YAGzXW3gftg,0","Times":"YAGzXW3gftg,0","Ubuntu":"YACgERDU--Q,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0","ui-monospace":"YADlN8CFZ8Q,0","ui-sans-serif":"YACkoN-xg4g,0"}}');</script><script src="/_sdk/9e99ecf74af2a081.telemetry_sdk.js" integrity="sha512-tZ7fmfTx2KpCLjXQnEuL9azQ4A5+7+xumsx6r/WYVD0zCP/8LP8hDeCypMQesmP+WyAew4g7l5Ah23Bjd6yoVg=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BRILLIT MENDOZA - Marketing, Contenido &amp; Diseño</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-      });
-    },{threshold:0.12});
-    document.querySelectorAll('section.reveal').forEach(el=>io.observe(el));
-  } else {
-    document.querySelectorAll('section.reveal').forEach(el=>el.classList.add('is-visible'));
-  }
-</script>
 
-</body>
-</html>
+        :root {
+            --color-bg: #FAFAFA;
+            --color-primary: #FF85A1;
+            --color-light: #F8EDEB;
+            --color-text: #2B2B2B;
+            --color-white: #FFFFFF;
+            --color-gray: #E8E8E8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        /* NAVEGACIÓN FIJA */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--color-gray);
+            padding: 1.5rem 4%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            font-family: 'Playfair Display', serif;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--color-primary);
+        }
+
+        /* ESPACIADO PARA NAV FIJA */
+        main {
+            margin-top: 80px;
+        }
+
+        /* SECCIONES GENERALES */
+        section {
+            padding: 6rem 4%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            color: var(--color-text);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+
+        /* ✦ 01 — INICIO */
+        .hero {
+            padding: 10rem 4% 6rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--color-light) 0%, var(--color-bg) 100%);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-primary);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-primary);
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--color-primary);
+        }
+
+        .cta-button-secondary {
+            background-color: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+
+        .cta-button-secondary:hover {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        /* Carrusel editorial de casos */
+        .case-carousel { margin-top: 3rem; }
+        .case-track { position: relative; min-height: 520px; }
+        .case-slide { display: none; grid-template-columns: 1.15fr 0.85fr; min-height: 520px; background: var(--color-text); color: white; overflow: hidden; border-radius: 14px; }
+        .case-slide.is-active { display: grid; animation: case-reveal .5s ease both; }
+        .case-slide img { width: 100%; height: 100%; min-height: 520px; object-fit: cover; }
+        .case-slide-content { align-self: center; padding: 3.5rem; }
+        .case-kicker { color: var(--color-primary); font-size: .8rem; font-weight: 700; letter-spacing: 2px; }
+        .case-slide-title { color: white; font-size: clamp(2rem, 4vw, 4rem); margin: 1rem 0; }
+        .case-slide-content p { color: #f1e9e8; font-size: 1.1rem; line-height: 1.7; }
+        .case-result { display: inline-block; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,.3); color: var(--color-primary); font-weight: 700; }
+        .case-controls { display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; }
+        .case-arrow { border: 1px solid var(--color-primary); background: transparent; color: var(--color-primary); border-radius: 50%; width: 42px; height: 42px; cursor: pointer; font-size: 1.2rem; }
+        .case-arrow:hover, .case-arrow:focus-visible { background: var(--color-primary); color: white; }
+        .case-dots { display: flex; gap: .5rem; }
+        .case-dot { width: 9px; height: 9px; border: 0; border-radius: 50%; background: #d7caca; cursor: pointer; padding: 0; }
+        .case-dot.is-active { background: var(--color-primary); transform: scale(1.3); }
+        .legacy-projects { display: none; }
+        @keyframes case-reveal { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: translateX(0); } }
+        @media (max-width: 768px) { .case-slide { grid-template-columns: 1fr; min-height: 600px; } .case-slide img { min-height: 300px; max-height: 330px; } .case-slide-content { padding: 2rem; } }
+
+        /* ✦ 02 — TRABAJO SELECCIONADO */
+        .projects-grid {
+            display: grid;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--color-light), var(--color-light));
+            object-fit: cover;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay-text {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .project-content {
+            padding: 2.5rem;
+        }
+
+        .project-number {
+            font-size: 0.9rem;
+            color: var(--color-primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .project-tag {
+            background-color: var(--color-light);
+            color: var(--color-text);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-section {
+            margin-bottom: 2rem;
+        }
+
+        .project-section h4 {
+            font-size: 1rem;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-section p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .metric {
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--color-light);
+            border-radius: 8px;
+        }
+
+        .metric-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.5rem;
+            text-transform: capitalize;
+        }
+
+        /* ✦ 03 — LABORATORIO DE IDEAS */
+        .content-lab {
+            background: var(--color-light);
+            padding: 6rem 4%;
+        }
+
+        .lab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .video-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 400px;
+            background: #000;
+            cursor: pointer;
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--color-primary), #ff9db5);
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-card:hover .video-overlay {
+            opacity: 1;
+        }
+
+        .play-button {
+            width: 70px;
+            height: 70px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(255, 133, 161, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 15px rgba(255, 133, 161, 0);
+            }
+        }
+
+        .video-info {
+            padding: 1.5rem;
+            background: white;
+        }
+
+        .video-number {
+            font-size: 0.85rem;
+            color: var(--color-primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-text);
+        }
+
+        .video-description {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* ✦ 04 — CONTENIDO VISUAL */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--color-light), var(--color-primary));
+            object-fit: cover;
+        }
+
+        .gallery-label {
+            padding: 1.2rem;
+            background: white;
+            text-align: center;
+        }
+
+        .gallery-label h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-label p {
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        /* ✦ 05 — MI MÉTODO */
+        .methodology {
+            background: var(--color-light);
+            padding: 6rem 4%;
+        }
+
+        .methodology-statement {
+            font-size: 2.2rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 4rem;
+            color: var(--color-text);
+            max-width: 800px;
+        }
+
+        .methodology-statement strong {
+            color: var(--color-primary);
+        }
+
+        .steps-timeline {
+            display: grid;
+            gap: 3rem;
+            max-width: 900px;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 2rem;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .step::before {
+            content: '';
+            position: absolute;
+            left: 75px;
+            top: 80px;
+            width: 2px;
+            height: 60px;
+            background: var(--color-primary);
+        }
+
+        .step:last-child::before {
+            display: none;
+        }
+
+        .step-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .step-content h4 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--color-text);
+        }
+
+        .step-content p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* ✦ 06 — SOBRE MÍ */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-text);
+        }
+
+        .about-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .about-section h4 {
+            font-size: 1.1rem;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .about-section p, .about-section ul {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .about-section ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+        }
+
+        .about-section li {
+            padding: 0.8rem;
+            background: white;
+            border-radius: 6px;
+            border-left: 3px solid var(--color-primary);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tool-tag {
+            background: var(--color-light);
+            padding: 0.8rem;
+            border-radius: 6px;
+            font-weight: 500;
+            text-align: center;
+            color: var(--color-text);
+        }
+
+        .about-image {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-light));
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ✦ 07 — CÓMO AMPLÍO MI CREATIVIDAD */
+        .ai-process {
+            background: var(--color-light);
+            padding: 6rem 4%;
+        }
+
+        .ai-statement {
+            font-size: 2.2rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 4rem;
+            color: var(--color-text);
+            max-width: 800px;
+        }
+
+        .process-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .process-step {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .process-step-number {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .process-step-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--color-text);
+        }
+
+        .process-step-desc {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .ai-tagline {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1.8rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--color-text);
+        }
+
+        .ai-tagline .highlight {
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
+        /* ✦ 08 — CONTACTO */
+        .contact {
+            text-align: center;
+            background: linear-gradient(135deg, var(--color-light), var(--color-bg));
+        }
+
+        .contact h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .contact-item a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--color-text);
+            text-decoration: underline;
+        }
+
+        .contact-cta {
+            margin: 2.5rem 0;
+        }
+
+        .footer-credit {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-gray);
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            .hero {
+                padding: 6rem 4% 4rem;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .step {
+                grid-template-columns: 1fr;
+            }
+
+            .step::before {
+                left: -20px;
+                top: 30px;
+                height: 40px;
+            }
+
+            .project-card {
+                margin-bottom: 2rem;
+            }
+
+            nav a {
+                font-size: 0.85rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+  <script src="/_sdk/fcb6dc01f91829ac.resizing_sdk.js" integrity="sha512-YK8JfnN705qaEaVhiL7pcVB2Rs/BbdX5yxV55Az8zT/1JanyEWTw9HqCF915m9iV1YEaoil8qsjJz03l1Kb0Ug=="></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="/_sdk/fbe2ebfd64647c54.data_sdk.js" type="text/javascript" integrity="sha512-vkTX6CfvpHc3WbjK+tFJCaDuw4ERA4aEV/e5/7+MMJPMTF4RJYCI6CAwJBT/gtDW+dba4uLSsPUgDjVDHWtgUQ=="></script>
+ </head>
+ <body data-html-import-id="html-import-0" data-template-id="__page-root" style="background: rgb(250, 250, 250);">
+  <!-- NAVEGACIÓN -->
+  <header data-html-import-id="html-import-1" data-template-id="header-0" class="canva-header" style="background: rgba(250, 250, 250, 0.95);">
+   <nav data-html-import-id="html-import-2">
+    <div class="logo canva-container" data-html-import-id="html-import-3" data-template-id="div-1" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 22px;">BRILLIT</div>
+    <ul data-html-import-id="html-import-4">
+     <li data-html-import-id="html-import-5" data-template-id="li-2" class="canva-text" style="color: rgb(43, 43, 43);"><a href="#inicio" data-html-import-id="html-import-6" data-template-id="a-3" class="canva-link" style="color: rgb(43, 43, 43); font-weight: 500; font-style: normal; font-size: 15px;">Inicio</a></li>
+     <li data-html-import-id="html-import-7" data-template-id="li-4" class="canva-text" style="color: rgb(43, 43, 43);"><a href="#casos" data-html-import-id="html-import-8" data-template-id="a-5" class="canva-link" style="color: rgb(43, 43, 43); font-weight: 500; font-style: normal; font-size: 15px;">Casos</a></li>
+     <li data-html-import-id="html-import-9" data-template-id="li-6" class="canva-text" style="color: rgb(43, 43, 43);"><a href="#laboratorio" data-html-import-id="html-import-10" data-template-id="a-7" class="canva-link" style="color: rgb(43, 43, 43); font-weight: 500; font-style: normal; font-size: 15px;">Lab</a></li>
+     <li data-html-import-id="html-import-11" data-template-id="li-8" class="canva-text" style="color: rgb(43, 43, 43);"><a href="#metodo" data-html-import-id="html-import-12" data-template-id="a-9" class="canva-link" style="color: rgb(43, 43, 43); font-weight: 500; font-style: normal; font-size: 15px;">Método</a></li>
+     <li data-html-import-id="html-import-13" data-template-id="li-10" class="canva-text" style="color: rgb(43, 43, 43);"><a href="#contacto" data-html-import-id="html-import-14" data-template-id="a-11" class="canva-link" style="color: rgb(43, 43, 43); font-weight: 500; font-style: normal; font-size: 15px;">Contacto</a></li>
+    </ul>
+   </nav>
+  </header>
+  <main data-html-import-id="html-import-15">
+   <!-- ✦ 01 — INICIO -->
+   <section class="hero" id="inicio" data-html-import-id="html-import-16" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+    <h1 data-html-import-id="html-import-17" data-template-id="h1-12" class="canva-text" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 72px;">PIENSO
+CREO
+COMUNICO</h1>
+    <p class="tagline canva-text" data-html-import-id="html-import-20" data-template-id="p-13" style="color: rgb(255, 133, 161); font-weight: 600; font-style: normal; font-size: 21px;">Marketing con estrategia detrás</p>
+    <p class="subtitle canva-text" data-html-import-id="html-import-21" data-template-id="p-14" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 18px;">Transformo insights en contenido que genera resultados.</p><a href="#casos" class="cta-button canva-link" data-html-import-id="html-import-22" data-template-id="a-15" style="background: rgb(255, 133, 161); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">DESCUBRE MIS CASOS →</a>
+   </section><!-- ✦ 02 — TRABAJO SELECCIONADO -->
+   <section id="casos" data-html-import-id="html-import-23" style="opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s;">
+    <h2 class="section-title canva-text" data-html-import-id="html-import-24" data-template-id="h2-16" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 56px;">EXPERIENCIA LABORAL</h2>
+    <p class="section-subtitle canva-text" data-html-import-id="html-import-25" data-template-id="p-17" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 18px;">6 estrategias. 6 resultados.</p>
+    <div class="case-carousel" aria-label="Carrusel de casos de éxito">
+     <div class="case-track">
+      <article class="case-slide is-active"><img data-template-id="case-image-1" loading="lazy" class="canva-image" src="https://images.pexels.com/photos/33428752/pexels-photo-33428752.jpeg" alt="Delicious crispy fried food served with a herb dipping sauce in a cozy restaurant setting.">
+       <div class="case-slide-content"><span class="case-kicker">01 / CASO</span>
+        <h3 class="case-slide-title">RICCO'S</h3>
+        <p>Contenido gastronómico que convierte atención en comunidad.</p><span class="case-result">+50.5K reproducciones</span>
+       </div>
+      </article>
+      <article class="case-slide"><img data-template-id="case-image-2" loading="lazy" class="canva-image" src="https://images.pexels.com/photos/30268596/pexels-photo-30268596.jpeg" alt="Grilled chicken with fries and fresh salad on a wooden board, perfect for a hearty meal.">
+       <div class="case-slide-content"><span class="case-kicker">02 / CASO</span>
+        <h3 class="case-slide-title">PROMOCIÓN POLLO</h3>
+        <p>Una campaña urgente, directa y diseñada para activar visitas.</p><span class="case-result">+35% conversión</span>
+       </div>
+      </article>
+      <article class="case-slide"><img data-template-id="case-image-3" loading="lazy" class="canva-image" src="https://images.pexels.com/photos/34506359/pexels-photo-34506359.jpeg" alt="Customer reviewing menu at Dishoom restaurant in warm indoor setting.">
+       <div class="case-slide-content"><span class="case-kicker">03 / CASO</span>
+        <h3 class="case-slide-title">REDISEÑO MENÚ</h3>
+        <p>Jerarquía visual para hacer más clara la experiencia de elegir.</p><span class="case-result">100% satisfacción</span>
+       </div>
+      </article>
+      <article class="case-slide"><img data-template-id="case-image-4" loading="lazy" class="canva-image" src="https://images.pexels.com/photos/15635399/pexels-photo-15635399.jpeg" alt="Colorful sticky notes arranged around a hashtag campaign sign, ideal for social media marketing concepts.">
+       <div class="case-slide-content"><span class="case-kicker">04 / CASO</span>
+        <h3 class="case-slide-title">CONTENIDO SOCIAL</h3>
+        <p>Ideas visuales con ritmo, intención y una voz reconocible.</p><span class="case-result">Estrategia + diseño</span>
+       </div>
+      </article>
+      <article class="case-slide"><img data-template-id="case-image-5" loading="lazy" class="canva-image" src="https://images.pexels.com/photos/12973592/pexels-photo-12973592.jpeg" alt="Close-up view of a glass window with diverse posters at night, depicting urban life and advertising.">
+       <div class="case-slide-content"><span class="case-kicker">05 / CASO</span>
+        <h3 class="case-slide-title">CAMPAÑA PROMOCIONAL</h3>
+        <p>Piezas que convierten una oferta en una experiencia de marca.</p><span class="case-result">Diseño con impacto</span>
+       </div>
+      </article>
+      <article class="case-slide"><img data-template-id="case-image-6" loading="lazy" class="canva-image" src="https://images.pexels.com/photos/2250136/pexels-photo-2250136.jpeg" alt="Art magazines and brochures on a sunlit concrete surface, highlighting shadow play and design.">
+       <div class="case-slide-content"><span class="case-kicker">06 / CASO</span>
+        <h3 class="case-slide-title">EDITORIAL</h3>
+        <p>Composición, narrativa y detalle en formatos que perduran.</p><span class="case-result">Dirección visual</span>
+       </div>
+      </article>
+      <article class="case-slide"><img data-template-id="case-image-7" loading="lazy" class="canva-image" src="https://images.pexels.com/photos/18833779/pexels-photo-18833779.jpeg" alt="A vibrant multicolored background featuring the text PORTFOLIO in pink font on colorful paper.">
+       <div class="case-slide-content"><span class="case-kicker">07 / CASO</span>
+        <h3 class="case-slide-title">BRANDING</h3>
+        <p>Un sistema visual coherente para hacer memorable cada contacto.</p><span class="case-result">Identidad con intención</span>
+       </div>
+      </article>
+     </div>
+     <div class="case-controls"><button type="button" class="case-arrow" id="case-prev" aria-label="Caso anterior">←</button>
+      <div class="case-dots" role="tablist" aria-label="Seleccionar caso"></div><button type="button" class="case-arrow" id="case-next" aria-label="Caso siguiente">→</button>
+     </div>
+    </div>
+    <div class="projects-grid legacy-projects" data-html-import-id="html-import-26">
+     <!-- PROYECTO 01: RICCO'S -->
+     <div class="project-card canva-container" data-html-import-id="html-import-27" data-template-id="div-18" style="background: rgb(255, 255, 255);">
+      <div class="project-content" data-html-import-id="html-import-32">
+       <div class="project-number canva-container" data-html-import-id="html-import-33" data-template-id="div-22" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 14px;">01</div>
+       <h3 class="project-title canva-text" data-html-import-id="html-import-34" data-template-id="h3-23" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 32px;">RICCO'S</h3>
+       <div class="project-tags" data-html-import-id="html-import-35">
+        <span class="project-tag canva-text" data-html-import-id="html-import-36" data-template-id="span-24" style="background: rgb(248, 237, 235); color: rgb(43, 43, 43); font-weight: 500; font-style: normal; font-size: 14px;">Redes Sociales</span> <span class="project-tag canva-text" data-html-import-id="html-import-37" data-template-id="span-25" style="background: rgb(248, 237, 235); color: rgb(43, 43, 43); font-weight: 500; font-style: normal; font-size: 14px;">Contenido</span> <span class="project-tag canva-text" data-html-import-id="html-import-38" data-template-id="span-26" style="background: rgb(248, 237, 235); color: rgb(43, 43, 43); font-weight: 500; font-style: normal; font-size: 14px;">Diseño</span>
+       </div>
+       <div class="project-section" data-html-import-id="html-import-39">
+        <h4 data-html-import-id="html-import-40" data-template-id="h4-27" class="canva-text" style="color: rgb(255, 133, 161); font-weight: 600; font-style: normal; font-size: 16px;">DESAFÍO</h4>
+        <p data-html-import-id="html-import-41" data-template-id="p-28" class="canva-text" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 15px;">La marca necesitaba fortalecer su presencia digital y generar contenido más atractivo para su audiencia.</p>
+       </div>
+       <div class="project-section" data-html-import-id="html-import-42">
+        <h4 data-html-import-id="html-import-43" data-template-id="h4-29" class="canva-text" style="color: rgb(255, 133, 161); font-weight: 600; font-style: normal; font-size: 16px;">ESTRATEGIA</h4>
+        <p data-html-import-id="html-import-44" data-template-id="p-30" class="canva-text" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 15px;">Investigación → Estrategia → Contenido → Diseño → Publicación</p>
+       </div>
+       <div class="project-section" data-html-import-id="html-import-45">
+        <h4 data-html-import-id="html-import-46" data-template-id="h4-31" class="canva-text" style="color: rgb(255, 133, 161); font-weight: 600; font-style: normal; font-size: 16px;">IMPACTO</h4>
+        <div class="metrics" data-html-import-id="html-import-47">
+         <div class="metric canva-container" data-html-import-id="html-import-48" data-template-id="div-32" style="background: rgb(248, 237, 235);">
+          <div class="metric-number canva-container" data-html-import-id="html-import-49" data-template-id="div-33" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 29px;">+50.5K</div>
+          <div class="metric-label canva-container" data-html-import-id="html-import-50" data-template-id="div-34" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 14px;">Reproducciones</div>
+         </div>
+         <div class="metric canva-container" data-html-import-id="html-import-51" data-template-id="div-35" style="background: rgb(248, 237, 235);">
+          <div class="metric-number canva-container" data-html-import-id="html-import-52" data-template-id="div-36" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 29px;">+500</div>
+          <div class="metric-label canva-container" data-html-import-id="html-import-53" data-template-id="div-37" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 14px;">Vistas de perfil</div>
+         </div>
+         <div class="metric canva-container" data-html-import-id="html-import-54" data-template-id="div-38" style="background: rgb(248, 237, 235);">
+          <div class="metric-number canva-container" data-html-import-id="html-import-55" data-template-id="div-39" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 29px;">1,176</div>
+          <div class="metric-label canva-container" data-html-import-id="html-import-56" data-template-id="div-40" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 14px;">Me gusta</div>
+         </div>
+         <div class="metric canva-container" data-html-import-id="html-import-57" data-template-id="div-41" style="background: rgb(248, 237, 235);">
+          <div class="metric-number canva-container" data-html-import-id="html-import-58" data-template-id="div-42" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 29px;">+80</div>
+          <div class="metric-label canva-container" data-html-import-id="html-import-59" data-template-id="div-43" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 14px;">Comentarios</div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- PROYECTO 03: MENU DISEÑO -->
+     <div class="project-card canva-container" data-html-import-id="html-import-87" data-template-id="div-64" style="background: rgb(255, 255, 255);">
+      <div class="project-image" data-html-import-id="html-import-88">
+       <img data-html-import-id="html-import-89" data-template-id="img-65" class="canva-image" src="https://drive.google.com/file/d/1XtcmLG67V57hq5XQH-8BMxTqPziLxvp2/preview" alt="Menú Diseño">
+       <div class="project-overlay canva-container" data-html-import-id="html-import-90" data-template-id="div-66" style="background: transparent;">
+        <div class="project-overlay-text canva-container" data-html-import-id="html-import-91" data-template-id="div-67" style="color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 21px;">LEER LA ESTRATEGIA →</div>
+       </div>
+      </div>
+      <div class="project-content" data-html-import-id="html-import-92">
+       <div class="project-number canva-container" data-html-import-id="html-import-93" data-template-id="div-68" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 14px;">03</div>
+       <h3 class="project-title canva-text" data-html-import-id="html-import-94" data-template-id="h3-69" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 32px;">REDISEÑO MENÚ</h3>
+       <div class="project-tags" data-html-import-id="html-import-95">
+        <span class="project-tag canva-text" data-html-import-id="html-import-96" data-template-id="span-70" style="background: rgb(248, 237, 235); color: rgb(43, 43, 43); font-weight: 500; font-style: normal; font-size: 14px;">Diseño Gráfico</span> <span class="project-tag canva-text" data-html-import-id="html-import-97" data-template-id="span-71" style="background: rgb(248, 237, 235); color: rgb(43, 43, 43); font-weight: 500; font-style: normal; font-size: 14px;">Branding</span> <span class="project-tag canva-text" data-html-import-id="html-import-98" data-template-id="span-72" style="background: rgb(248, 237, 235); color: rgb(43, 43, 43); font-weight: 500; font-style: normal; font-size: 14px;">Print</span>
+       </div>
+       <div class="project-section" data-html-import-id="html-import-99">
+        <h4 data-html-import-id="html-import-100" data-template-id="h4-73" class="canva-text" style="color: rgb(255, 133, 161); font-weight: 600; font-style: normal; font-size: 16px;">DESAFÍO</h4>
+        <p data-html-import-id="html-import-101" data-template-id="p-74" class="canva-text" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 15px;">Crear un menú que reflejara la identidad de marca y mejorara la experiencia del cliente.</p>
+       </div>
+       <div class="project-section" data-html-import-id="html-import-102">
+        <h4 data-html-import-id="html-import-103" data-template-id="h4-75" class="canva-text" style="color: rgb(255, 133, 161); font-weight: 600; font-style: normal; font-size: 16px;">ESTRATEGIA</h4>
+        <p data-html-import-id="html-import-104" data-template-id="p-76" class="canva-text" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 15px;">Tipografía clara + Colores atractivos + Jerarquía visual</p>
+       </div>
+       <div class="project-section" data-html-import-id="html-import-105">
+        <h4 data-html-import-id="html-import-106" data-template-id="h4-77" class="canva-text" style="color: rgb(255, 133, 161); font-weight: 600; font-style: normal; font-size: 16px;">IMPACTO</h4>
+        <div class="metrics" data-html-import-id="html-import-107">
+         <div class="metric canva-container" data-html-import-id="html-import-108" data-template-id="div-78" style="background: rgb(248, 237, 235);">
+          <div class="metric-number canva-container" data-html-import-id="html-import-109" data-template-id="div-79" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 29px;">100%</div>
+          <div class="metric-label canva-container" data-html-import-id="html-import-110" data-template-id="div-80" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 14px;">Satisfacción</div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- ✦ 03 — LABORATORIO DE IDEAS -->
+   <section class="content-lab canva-section" id="laboratorio" data-html-import-id="html-import-111" data-template-id="section-81" style="opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; background: rgb(248, 237, 235);">
+    <h2 class="section-title canva-text" data-html-import-id="html-import-112" data-template-id="h2-82" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 56px;">LABORATORIO DE IDEAS</h2>
+    <p class="section-subtitle canva-text" data-html-import-id="html-import-113" data-template-id="p-83" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 18px;">De la idea al impacto</p>
+    <div class="lab-grid" data-html-import-id="html-import-114">
+     <!-- VIDEO 01 -->
+     <div class="video-card canva-container" onclick="window.open('https://drive.google.com/file/d/1eQ0-fumKD5SQCVH6iedENKK6pV_OJKCB/view')" data-html-import-id="html-import-115" data-template-id="div-84" style="background: rgb(0, 0, 0);">
+      <div class="video-overlay canva-container" data-html-import-id="html-import-116" data-template-id="div-85" style="background: rgba(0, 0, 0, 0.5);">
+       <div class="play-button canva-container" data-html-import-id="html-import-117" data-template-id="div-86" style="background: rgb(255, 133, 161); color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 24px;">▶</div>
+      </div>
+      <div style="width:100%; height:100%; background: linear-gradient(135deg, var(--color-primary), #ff9db5);" data-html-import-id="html-import-118"></div>
+      <div class="video-info canva-container" data-html-import-id="html-import-119" data-template-id="div-87" style="background: rgb(255, 255, 255);">
+       <div class="video-number canva-container" data-html-import-id="html-import-120" data-template-id="div-88" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 14px;">01</div>
+       <h4 class="video-title canva-text" data-html-import-id="html-import-121" data-template-id="h4-89" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 21px;">Reel Gastronómico</h4>
+       <p class="video-description canva-text" data-html-import-id="html-import-122" data-template-id="p-90" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 14px;">Concepto, grabación, edición y publicación</p>
+      </div>
+     </div><!-- VIDEO 02 -->
+     <div class="video-card canva-container" onclick="window.open('https://drive.google.com/file/d/1X10ZqX-V6_036RGsI9yYf7fFDOUaXoZS/view')" data-html-import-id="html-import-123" data-template-id="div-91" style="background: rgb(0, 0, 0);">
+      <div class="video-overlay canva-container" data-html-import-id="html-import-124" data-template-id="div-92" style="background: rgba(0, 0, 0, 0.5);">
+       <div class="play-button canva-container" data-html-import-id="html-import-125" data-template-id="div-93" style="background: rgb(255, 133, 161); color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 24px;">▶</div>
+      </div>
+      <div style="width:100%; height:100%; background: linear-gradient(135deg, #ff9db5, var(--color-light));" data-html-import-id="html-import-126"></div>
+      <div class="video-info canva-container" data-html-import-id="html-import-127" data-template-id="div-94" style="background: rgb(255, 255, 255);">
+       <div class="video-number canva-container" data-html-import-id="html-import-128" data-template-id="div-95" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 14px;">02</div>
+       <h4 class="video-title canva-text" data-html-import-id="html-import-129" data-template-id="h4-96" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 21px;">Video Promocional</h4>
+       <p class="video-description canva-text" data-html-import-id="html-import-130" data-template-id="p-97" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 14px;">Concepto, producción y edición</p>
+      </div>
+     </div><!-- VIDEO 03 -->
+     <div class="video-card canva-container" onclick="window.open('https://drive.google.com/file/d/1tkjrYAQg2ZZ48JUbEiWclKP7Xi9X-U38/view')" data-html-import-id="html-import-131" data-template-id="div-98" style="background: rgb(0, 0, 0);">
+      <div class="video-overlay canva-container" data-html-import-id="html-import-132" data-template-id="div-99" style="background: rgba(0, 0, 0, 0.5);">
+       <div class="play-button canva-container" data-html-import-id="html-import-133" data-template-id="div-100" style="background: rgb(255, 133, 161); color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 24px;">▶</div>
+      </div>
+      <div style="width:100%; height:100%; background: linear-gradient(135deg, var(--color-light), var(--color-primary));" data-html-import-id="html-import-134"></div>
+      <div class="video-info canva-container" data-html-import-id="html-import-135" data-template-id="div-101" style="background: rgb(255, 255, 255);">
+       <div class="video-number canva-container" data-html-import-id="html-import-136" data-template-id="div-102" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 14px;">03</div>
+       <h4 class="video-title canva-text" data-html-import-id="html-import-137" data-template-id="h4-103" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 21px;">Contenido Social</h4>
+       <p class="video-description canva-text" data-html-import-id="html-import-138" data-template-id="p-104" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 14px;">Guión, grabación y edición</p>
+      </div>
+     </div><!-- VIDEO 04 -->
+     <div class="video-card canva-container" onclick="window.open('https://drive.google.com/file/d/1VzkCEsiSiavkA4db_ANf50vFe8NCgIfS/view')" data-html-import-id="html-import-139" data-template-id="div-105" style="background: rgb(0, 0, 0);">
+      <div class="video-overlay canva-container" data-html-import-id="html-import-140" data-template-id="div-106" style="background: rgba(0, 0, 0, 0.5);">
+       <div class="play-button canva-container" data-html-import-id="html-import-141" data-template-id="div-107" style="background: rgb(255, 133, 161); color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 24px;">▶</div>
+      </div>
+      <div style="width:100%; height:100%; background: linear-gradient(135deg, #ff9db5, #FFB3C1);" data-html-import-id="html-import-142"></div>
+      <div class="video-info canva-container" data-html-import-id="html-import-143" data-template-id="div-108" style="background: rgb(255, 255, 255);">
+       <div class="video-number canva-container" data-html-import-id="html-import-144" data-template-id="div-109" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 14px;">04</div>
+       <h4 class="video-title canva-text" data-html-import-id="html-import-145" data-template-id="h4-110" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 21px;">Estrategia Visual</h4>
+       <p class="video-description canva-text" data-html-import-id="html-import-146" data-template-id="p-111" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 14px;">Dirección visual en 30 segundos</p>
+      </div>
+     </div><!-- VIDEO 05 -->
+     <div class="video-card canva-container" onclick="window.open('https://drive.google.com/file/d/1SnMdFlB-rPnAx5eeUhphl2Vy5hWZ-pzU/view')" data-html-import-id="html-import-147" data-template-id="div-112" style="background: rgb(0, 0, 0);">
+      <div class="video-overlay canva-container" data-html-import-id="html-import-148" data-template-id="div-113" style="background: rgba(0, 0, 0, 0.5);">
+       <div class="play-button canva-container" data-html-import-id="html-import-149" data-template-id="div-114" style="background: rgb(255, 133, 161); color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 24px;">▶</div>
+      </div>
+      <div style="width:100%; height:100%; background: linear-gradient(135deg, var(--color-light), #ff9db5);" data-html-import-id="html-import-150"></div>
+      <div class="video-info canva-container" data-html-import-id="html-import-151" data-template-id="div-115" style="background: rgb(255, 255, 255);">
+       <div class="video-number canva-container" data-html-import-id="html-import-152" data-template-id="div-116" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 14px;">05</div>
+       <h4 class="video-title canva-text" data-html-import-id="html-import-153" data-template-id="h4-117" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 21px;">Edición Rápida</h4>
+       <p class="video-description canva-text" data-html-import-id="html-import-154" data-template-id="p-118" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 14px;">Contenido listo para publicar</p>
+      </div>
+     </div><!-- VIDEO 06 -->
+     <div class="video-card canva-container" onclick="window.open('https://drive.google.com/file/d/1cFFG9U-a-YxpQBhmz6dW9mNqYDGXu4E9/view')" data-html-import-id="html-import-155" data-template-id="div-119" style="background: rgb(0, 0, 0);">
+      <div class="video-overlay canva-container" data-html-import-id="html-import-156" data-template-id="div-120" style="background: rgba(0, 0, 0, 0.5);">
+       <div class="play-button canva-container" data-html-import-id="html-import-157" data-template-id="div-121" style="background: rgb(255, 133, 161); color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 24px;">▶</div>
+      </div>
+      <div style="width:100%; height:100%; background: linear-gradient(135deg, #FFB3C1, var(--color-light));" data-html-import-id="html-import-158"></div>
+      <div class="video-info canva-container" data-html-import-id="html-import-159" data-template-id="div-122" style="background: rgb(255, 255, 255);">
+       <div class="video-number canva-container" data-html-import-id="html-import-160" data-template-id="div-123" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 14px;">06</div>
+       <h4 class="video-title canva-text" data-html-import-id="html-import-161" data-template-id="h4-124" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 21px;">Producción Completa</h4>
+       <p class="video-description canva-text" data-html-import-id="html-import-162" data-template-id="p-125" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 14px;">Del concepto a la distribución</p>
+      </div>
+     </div>
+    </div>
+    <p style="text-align: center; margin-top: 3rem; color: rgb(102, 102, 102); font-size: 15px;" data-html-import-id="html-import-163" data-template-id="p-126" class="canva-text"><canva-inline-text data-template-id="canva-inline-text-127" class="canva-text" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 15px;">💡 Esto demuestra que soy </canva-inline-text><strong data-html-import-id="html-import-164" data-template-id="strong-128" class="canva-text" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 16px;">content creator</strong><canva-inline-text data-template-id="canva-inline-text-129" class="canva-text" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 15px;">, no únicamente diseñadora.</canva-inline-text></p>
+   </section><!-- ✦ 04 — CONTENIDO VISUAL -->
+   <section data-html-import-id="html-import-165" style="opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s;">
+    <h2 class="section-title canva-text" data-html-import-id="html-import-166" data-template-id="h2-130" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 56px;">CONTENIDO VISUAL</h2>
+    <p class="section-subtitle canva-text" data-html-import-id="html-import-167" data-template-id="p-131" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 18px;">Una colección de ideas visuales</p><!-- SOCIAL MEDIA -->
+    <h3 style="font-size: 24px; margin-top: 3rem; margin-bottom: 2rem; color: rgb(43, 43, 43); font-weight: 800; font-style: normal;" data-html-import-id="html-import-168" data-template-id="h3-132" class="canva-text">SOCIAL MEDIA</h3>
+    <div class="gallery" data-html-import-id="html-import-169">
+     <div class="gallery-item canva-container" data-html-import-id="html-import-170" data-template-id="div-133" style="background: rgb(255, 255, 255);">
+      <div class="gallery-image" style="background: linear-gradient(135deg, var(--color-primary), #FFB3C1);" data-html-import-id="html-import-171"></div>
+      <div class="gallery-label canva-container" data-html-import-id="html-import-172" data-template-id="div-134" style="background: rgb(255, 255, 255);">
+       <h4 data-html-import-id="html-import-173" data-template-id="h4-135" class="canva-text" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 16px;">Carrusel</h4>
+       <p data-html-import-id="html-import-174" data-template-id="p-136" class="canva-text" style="color: rgb(153, 153, 153); font-weight: 400; font-style: normal; font-size: 14px;">Diseño en Canva</p>
+      </div>
+     </div>
+     <div class="gallery-item canva-container" data-html-import-id="html-import-175" data-template-id="div-137" style="background: rgb(255, 255, 255);">
+      <div class="gallery-image" style="background: linear-gradient(135deg, var(--color-light), var(--color-primary));" data-html-import-id="html-import-176"></div>
+      <div class="gallery-label canva-container" data-html-import-id="html-import-177" data-template-id="div-138" style="background: rgb(255, 255, 255);">
+       <h4 data-html-import-id="html-import-178" data-template-id="h4-139" class="canva-text" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 16px;">Post Educativo</h4>
+       <p data-html-import-id="html-import-179" data-template-id="p-140" class="canva-text" style="color: rgb(153, 153, 153); font-weight: 400; font-style: normal; font-size: 14px;">Contenido estratégico</p>
+      </div>
+     </div>
+     <div class="gallery-item canva-container" data-html-import-id="html-import-180" data-template-id="div-141" style="background: rgb(255, 255, 255);">
+      <div class="gallery-image" style="background: linear-gradient(135deg, #FFB3C1, var(--color-light));" data-html-import-id="html-import-181"></div>
+      <div class="gallery-label canva-container" data-html-import-id="html-import-182" data-template-id="div-142" style="background: rgb(255, 255, 255);">
+       <h4 data-html-import-id="html-import-183" data-template-id="h4-143" class="canva-text" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 16px;">Stories</h4>
+       <p data-html-import-id="html-import-184" data-template-id="p-144" class="canva-text" style="color: rgb(153, 153, 153); font-weight: 400; font-style: normal; font-size: 14px;">Formatos verticales</p>
+      </div>
+     </div>
+    </div><!-- ADVERTISING -->
+    <h3 style="font-size: 24px; margin-top: 3rem; margin-bottom: 2rem; color: rgb(43, 43, 43); font-weight: 800; font-style: normal;" data-html-import-id="html-import-185" data-template-id="h3-145" class="canva-text">ADVERTISING</h3>
+    <div class="gallery" data-html-import-id="html-import-186">
+     <div class="gallery-item canva-container" data-html-import-id="html-import-187" data-template-id="div-146" style="background: rgb(255, 255, 255);">
+      <div class="gallery-image" style="background: linear-gradient(135deg, var(--color-primary), #FF85A1);" data-html-import-id="html-import-188"></div>
+      <div class="gallery-label canva-container" data-html-import-id="html-import-189" data-template-id="div-147" style="background: rgb(255, 255, 255);">
+       <h4 data-html-import-id="html-import-190" data-template-id="h4-148" class="canva-text" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 16px;">Flyer</h4>
+       <p data-html-import-id="html-import-191" data-template-id="p-149" class="canva-text" style="color: rgb(153, 153, 153); font-weight: 400; font-style: normal; font-size: 14px;">Promocional</p>
+      </div>
+     </div>
+     <div class="gallery-item canva-container" data-html-import-id="html-import-192" data-template-id="div-150" style="background: rgb(255, 255, 255);">
+      <div class="gallery-image" style="background: linear-gradient(135deg, #FFB3C1, var(--color-light));" data-html-import-id="html-import-193"></div>
+      <div class="gallery-label canva-container" data-html-import-id="html-import-194" data-template-id="div-151" style="background: rgb(255, 255, 255);">
+       <h4 data-html-import-id="html-import-195" data-template-id="h4-152" class="canva-text" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 16px;">Pieza Promocional</h4>
+       <p data-html-import-id="html-import-196" data-template-id="p-153" class="canva-text" style="color: rgb(153, 153, 153); font-weight: 400; font-style: normal; font-size: 14px;">Diseño impactante</p>
+      </div>
+     </div>
+    </div><!-- EDITORIAL -->
+    <h3 style="font-size: 24px; margin-top: 3rem; margin-bottom: 2rem; color: rgb(43, 43, 43); font-weight: 800; font-style: normal;" data-html-import-id="html-import-197" data-template-id="h3-154" class="canva-text">EDITORIAL</h3>
+    <div class="gallery" data-html-import-id="html-import-198">
+     <div class="gallery-item canva-container" data-html-import-id="html-import-199" data-template-id="div-155" style="background: rgb(255, 255, 255);">
+      <div class="gallery-image" style="background: linear-gradient(135deg, var(--color-light), #FF85A1);" data-html-import-id="html-import-200"></div>
+      <div class="gallery-label canva-container" data-html-import-id="html-import-201" data-template-id="div-156" style="background: rgb(255, 255, 255);">
+       <h4 data-html-import-id="html-import-202" data-template-id="h4-157" class="canva-text" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 16px;">Folleto</h4>
+       <p data-html-import-id="html-import-203" data-template-id="p-158" class="canva-text" style="color: rgb(153, 153, 153); font-weight: 400; font-style: normal; font-size: 14px;">Diseño editorial</p>
+      </div>
+     </div>
+     <div class="gallery-item canva-container" data-html-import-id="html-import-204" data-template-id="div-159" style="background: rgb(255, 255, 255);">
+      <div class="gallery-image" style="background: linear-gradient(135deg, #FFB3C1, var(--color-primary));" data-html-import-id="html-import-205"></div>
+      <div class="gallery-label canva-container" data-html-import-id="html-import-206" data-template-id="div-160" style="background: rgb(255, 255, 255);">
+       <h4 data-html-import-id="html-import-207" data-template-id="h4-161" class="canva-text" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 16px;">Composición</h4>
+       <p data-html-import-id="html-import-208" data-template-id="p-162" class="canva-text" style="color: rgb(153, 153, 153); font-weight: 400; font-style: normal; font-size: 14px;">Dirección visual</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- ✦ 05 — MI MÉTODO -->
+   <section class="methodology canva-section" id="metodo" data-html-import-id="html-import-209" data-template-id="section-163" style="opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; background: rgb(248, 237, 235);">
+    <h2 class="section-title canva-text" data-html-import-id="html-import-210" data-template-id="h2-164" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 56px;">MI MÉTODO</h2>
+    <p class="methodology-statement canva-text" data-html-import-id="html-import-211" data-template-id="p-165" style="color: rgb(43, 43, 43); font-size: 35px;"><strong data-html-import-id="html-import-212" data-template-id="strong-166" class="canva-text" style="color: rgb(255, 133, 161); font-weight: 400; font-style: normal; font-size: 16px;">Pienso antes de crear.</strong><br data-html-import-id="html-import-213"><canva-inline-text data-template-id="canva-inline-text-167" class="canva-text" style="color: rgb(43, 43, 43); font-weight: 400; font-style: normal; font-size: 35px;">Estrategia antes que pixels.</canva-inline-text></p>
+    <div class="steps-timeline" data-html-import-id="html-import-214">
+     <div class="step" data-html-import-id="html-import-215">
+      <div class="step-number canva-container" data-html-import-id="html-import-216" data-template-id="div-168" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 48px;">01</div>
+      <div class="step-content" data-html-import-id="html-import-217">
+       <h4 data-html-import-id="html-import-218" data-template-id="h4-169" class="canva-text" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 22px;">ANALIZO</h4>
+       <p data-html-import-id="html-import-219" data-template-id="p-170" class="canva-text" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 16px;">¿Cuál es el problema real? ¿Quién es la audiencia? ¿Qué le importa?</p>
+      </div>
+     </div>
+     <div class="step" data-html-import-id="html-import-220">
+      <div class="step-number canva-container" data-html-import-id="html-import-221" data-template-id="div-171" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 48px;">02</div>
+      <div class="step-content" data-html-import-id="html-import-222">
+       <h4 data-html-import-id="html-import-223" data-template-id="h4-172" class="canva-text" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 22px;">COMPRENDO</h4>
+       <p data-html-import-id="html-import-224" data-template-id="p-173" class="canva-text" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 16px;">Investigo tendencias, competencia y el comportamiento de la audiencia.</p>
+      </div>
+     </div>
+     <div class="step" data-html-import-id="html-import-225">
+      <div class="step-number canva-container" data-html-import-id="html-import-226" data-template-id="div-174" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 48px;">03</div>
+      <div class="step-content" data-html-import-id="html-import-227">
+       <h4 data-html-import-id="html-import-228" data-template-id="h4-175" class="canva-text" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 22px;">DISEÑO</h4>
+       <p data-html-import-id="html-import-229" data-template-id="p-176" class="canva-text" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 16px;">¿Qué mensaje + formato? ¿Cómo conectamos con la audiencia?</p>
+      </div>
+     </div>
+     <div class="step" data-html-import-id="html-import-230">
+      <div class="step-number canva-container" data-html-import-id="html-import-231" data-template-id="div-177" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 48px;">04</div>
+      <div class="step-content" data-html-import-id="html-import-232">
+       <h4 data-html-import-id="html-import-233" data-template-id="h4-178" class="canva-text" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 22px;">CONSTRUYO</h4>
+       <p data-html-import-id="html-import-234" data-template-id="p-179" class="canva-text" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 16px;">Contenido que conecta. Piezas visuales que generan impacto.</p>
+      </div>
+     </div>
+     <div class="step" data-html-import-id="html-import-235">
+      <div class="step-number canva-container" data-html-import-id="html-import-236" data-template-id="div-180" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 48px;">05</div>
+      <div class="step-content" data-html-import-id="html-import-237">
+       <h4 data-html-import-id="html-import-238" data-template-id="h4-181" class="canva-text" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 22px;">MIDO</h4>
+       <p data-html-import-id="html-import-239" data-template-id="p-182" class="canva-text" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 16px;">¿Qué aprendemos? ¿Qué sigue? Optimización constante.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- ✦ 06 — SOBRE MÍ -->
+   <section data-html-import-id="html-import-240" style="opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s;">
+    <h2 class="section-title canva-text" data-html-import-id="html-import-241" data-template-id="h2-183" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 56px;">SOBRE MÍ</h2>
+    <div class="about" data-html-import-id="html-import-242">
+     <div class="about-content" data-html-import-id="html-import-243">
+      <p style="font-size: 18px; color: rgb(102, 102, 102); margin-bottom: 2rem; font-weight: 400; font-style: normal;" data-html-import-id="html-import-244" data-template-id="p-184" class="canva-text">Soy marketera con un punto de vista creativo. Me especializo en transformar insights en estrategias que generen resultados tangibles.</p>
+      <div class="about-section" data-html-import-id="html-import-245">
+       <h4 data-html-import-id="html-import-246" data-template-id="h4-185" class="canva-text" style="color: rgb(255, 133, 161); font-weight: 600; font-style: normal; font-size: 18px;">FORMACIÓN</h4>
+       <p data-html-import-id="html-import-247" data-template-id="p-186" class="canva-text" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 16px;">Administración y Marketing
+Universidad Privada del Norte (UPN)</p>
+      </div>
+      <div class="about-section" data-html-import-id="html-import-249">
+       <h4 data-html-import-id="html-import-250" data-template-id="h4-187" class="canva-text" style="color: rgb(255, 133, 161); font-weight: 600; font-style: normal; font-size: 18px;">HE TRABAJADO EN</h4>
+       <ul data-html-import-id="html-import-251" data-template-id="ul-188" class="canva-list" style="color: rgb(102, 102, 102);">
+        <li data-html-import-id="html-import-252" data-template-id="li-189" class="canva-text" style="background: rgb(255, 255, 255); color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 16px;">Estrategia digital</li>
+        <li data-html-import-id="html-import-253" data-template-id="li-190" class="canva-text" style="background: rgb(255, 255, 255); color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 16px;">Diseño gráfico</li>
+        <li data-html-import-id="html-import-254" data-template-id="li-191" class="canva-text" style="background: rgb(255, 255, 255); color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 16px;">Social media management</li>
+        <li data-html-import-id="html-import-255" data-template-id="li-192" class="canva-text" style="background: rgb(255, 255, 255); color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 16px;">Contenido audiovisual</li>
+        <li data-html-import-id="html-import-256" data-template-id="li-193" class="canva-text" style="background: rgb(255, 255, 255); color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 16px;">Copywriting</li>
+        <li data-html-import-id="html-import-257" data-template-id="li-194" class="canva-text" style="background: rgb(255, 255, 255); color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 16px;">Branding</li>
+       </ul>
+      </div>
+      <div class="about-section" data-html-import-id="html-import-258">
+       <h4 data-html-import-id="html-import-259" data-template-id="h4-195" class="canva-text" style="color: rgb(255, 133, 161); font-weight: 600; font-style: normal; font-size: 18px;">HERRAMIENTAS</h4>
+       <div class="tools-grid" data-html-import-id="html-import-260">
+        <div class="tool-tag canva-container" data-html-import-id="html-import-261" data-template-id="div-196" style="background: rgb(248, 237, 235); color: rgb(43, 43, 43); font-weight: 500; font-style: normal; font-size: 16px;">Canva</div>
+        <div class="tool-tag canva-container" data-html-import-id="html-import-262" data-template-id="div-197" style="background: rgb(248, 237, 235); color: rgb(43, 43, 43); font-weight: 500; font-style: normal; font-size: 16px;">Photoshop</div>
+        <div class="tool-tag canva-container" data-html-import-id="html-import-263" data-template-id="div-198" style="background: rgb(248, 237, 235); color: rgb(43, 43, 43); font-weight: 500; font-style: normal; font-size: 16px;">Illustrator</div>
+        <div class="tool-tag canva-container" data-html-import-id="html-import-264" data-template-id="div-199" style="background: rgb(248, 237, 235); color: rgb(43, 43, 43); font-weight: 500; font-style: normal; font-size: 16px;">CapCut</div>
+        <div class="tool-tag canva-container" data-html-import-id="html-import-265" data-template-id="div-200" style="background: rgb(248, 237, 235); color: rgb(43, 43, 43); font-weight: 500; font-style: normal; font-size: 16px;">Adobe Express</div>
+        <div class="tool-tag canva-container" data-html-import-id="html-import-266" data-template-id="div-201" style="background: rgb(248, 237, 235); color: rgb(43, 43, 43); font-weight: 500; font-style: normal; font-size: 16px;">Power BI</div>
+        <div class="tool-tag canva-container" data-html-import-id="html-import-267" data-template-id="div-202" style="background: rgb(248, 237, 235); color: rgb(43, 43, 43); font-weight: 500; font-style: normal; font-size: 16px;">Excel</div>
+        <div class="tool-tag canva-container" data-html-import-id="html-import-268" data-template-id="div-203" style="background: rgb(248, 237, 235); color: rgb(43, 43, 43); font-weight: 500; font-style: normal; font-size: 16px;">Claude</div>
+       </div>
+      </div>
+     </div>
+     <div class="about-image" data-html-import-id="html-import-269">
+      <!-- Imagen de perfil o foto -->
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--color-primary), var(--color-light)); color: white; font-size: 16px; font-weight: 400; font-style: normal;" data-html-import-id="html-import-270" data-template-id="div-204" class="canva-container">
+                        📸 Foto de Perfil
+                    </div>
+     </div>
+    </div>
+   </section><!-- ✦ 07 — CÓMO AMPLÍO MI CREATIVIDAD -->
+   <section class="ai-process canva-section" data-html-import-id="html-import-271" data-template-id="section-205" style="opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; background: rgb(248, 237, 235);">
+    <h2 class="section-title canva-text" data-html-import-id="html-import-272" data-template-id="h2-206" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 56px;">CÓMO AMPLÍO MI CREATIVIDAD</h2>
+    <p class="ai-statement canva-text" data-html-import-id="html-import-273" data-template-id="p-207" style="color: rgb(43, 43, 43); font-size: 35px;"><canva-inline-text data-template-id="canva-inline-text-208" class="canva-text" style="color: rgb(43, 43, 43); font-weight: 400; font-style: normal; font-size: 35px;">Mi IA ayuda, pero </canva-inline-text><strong data-html-import-id="html-import-274" data-template-id="strong-209" class="canva-text" style="color: rgb(43, 43, 43); font-weight: 400; font-style: normal; font-size: 16px;">yo decido.</strong></p>
+    <div class="process-flow" data-html-import-id="html-import-275">
+     <div class="process-step canva-container" data-html-import-id="html-import-276" data-template-id="div-210" style="background: rgb(255, 255, 255);">
+      <div class="process-step-number canva-container" data-html-import-id="html-import-277" data-template-id="div-211" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 40px;">01</div>
+      <div class="process-step-title canva-container" data-html-import-id="html-import-278" data-template-id="div-212" style="color: rgb(43, 43, 43); font-weight: 600; font-style: normal; font-size: 19px;">RESEARCH</div>
+      <div class="process-step-desc canva-container" data-html-import-id="html-import-279" data-template-id="div-213" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 14px;">Investigación, tendencias, audiencia y competencia</div>
+     </div>
+     <div class="process-step canva-container" data-html-import-id="html-import-280" data-template-id="div-214" style="background: rgb(255, 255, 255);">
+      <div class="process-step-number canva-container" data-html-import-id="html-import-281" data-template-id="div-215" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 40px;">02</div>
+      <div class="process-step-title canva-container" data-html-import-id="html-import-282" data-template-id="div-216" style="color: rgb(43, 43, 43); font-weight: 600; font-style: normal; font-size: 19px;">EXPLORACIÓN</div>
+      <div class="process-step-desc canva-container" data-html-import-id="html-import-283" data-template-id="div-217" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 14px;">Uso Gemini para investigar y generar ideas</div>
+     </div>
+     <div class="process-step canva-container" data-html-import-id="html-import-284" data-template-id="div-218" style="background: rgb(255, 255, 255);">
+      <div class="process-step-number canva-container" data-html-import-id="html-import-285" data-template-id="div-219" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 40px;">03</div>
+      <div class="process-step-title canva-container" data-html-import-id="html-import-286" data-template-id="div-220" style="color: rgb(43, 43, 43); font-weight: 600; font-style: normal; font-size: 19px;">ESTRATEGIA</div>
+      <div class="process-step-desc canva-container" data-html-import-id="html-import-287" data-template-id="div-221" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 14px;">ChatGPT para conceptos, copy y estructuración</div>
+     </div>
+     <div class="process-step canva-container" data-html-import-id="html-import-288" data-template-id="div-222" style="background: rgb(255, 255, 255);">
+      <div class="process-step-number canva-container" data-html-import-id="html-import-289" data-template-id="div-223" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 40px;">04</div>
+      <div class="process-step-title canva-container" data-html-import-id="html-import-290" data-template-id="div-224" style="color: rgb(43, 43, 43); font-weight: 600; font-style: normal; font-size: 19px;">REFINAMIENTO</div>
+      <div class="process-step-desc canva-container" data-html-import-id="html-import-291" data-template-id="div-225" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 14px;">Claude para revisión y perspectiva creativa</div>
+     </div>
+     <div class="process-step canva-container" data-html-import-id="html-import-292" data-template-id="div-226" style="background: rgb(255, 255, 255);">
+      <div class="process-step-number canva-container" data-html-import-id="html-import-293" data-template-id="div-227" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 40px;">05</div>
+      <div class="process-step-title canva-container" data-html-import-id="html-import-294" data-template-id="div-228" style="color: rgb(43, 43, 43); font-weight: 600; font-style: normal; font-size: 19px;">DISEÑO</div>
+      <div class="process-step-desc canva-container" data-html-import-id="html-import-295" data-template-id="div-229" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 14px;">Canva y Adobe para dirección visual</div>
+     </div>
+     <div class="process-step canva-container" data-html-import-id="html-import-296" data-template-id="div-230" style="background: rgb(255, 255, 255);">
+      <div class="process-step-number canva-container" data-html-import-id="html-import-297" data-template-id="div-231" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 40px;">06</div>
+      <div class="process-step-title canva-container" data-html-import-id="html-import-298" data-template-id="div-232" style="color: rgb(43, 43, 43); font-weight: 600; font-style: normal; font-size: 19px;">CONTENIDO</div>
+      <div class="process-step-desc canva-container" data-html-import-id="html-import-299" data-template-id="div-233" style="color: rgb(102, 102, 102); font-weight: 400; font-style: normal; font-size: 14px;">Video, reels y publicaciones finales</div>
+     </div>
+    </div>
+    <div class="ai-tagline canva-container" data-html-import-id="html-import-300" data-template-id="div-234" style="background: rgb(255, 255, 255); color: rgb(43, 43, 43); font-size: 29px;"><canva-inline-text data-template-id="canva-inline-text-235" class="canva-text" style="color: rgb(43, 43, 43); font-weight: 400; font-style: normal; font-size: 29px;">La IA no reemplaza mi criterio.</canva-inline-text><br data-html-import-id="html-import-301"><span class="highlight canva-text" data-html-import-id="html-import-302" data-template-id="span-236" style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 16px;">Lo amplifica.</span><canva-inline-text data-template-id="canva-inline-text-237" class="canva-text" style="color: rgb(43, 43, 43); font-weight: 400; font-style: normal; font-size: 29px;"> 🔥</canva-inline-text>
+    </div>
+   </section><!-- ✦ 08 — CONTACTO -->
+   <section class="contact" id="contacto" data-html-import-id="html-import-303" style="opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s;">
+    <h2 data-html-import-id="html-import-304" data-template-id="h2-238" class="canva-text" style="color: rgb(43, 43, 43); font-weight: 800; font-style: normal; font-size: 48px;">VAMOS A CREAR JUNTOS</h2>
+    <p style="font-size: 19px; color: rgb(102, 102, 102); margin-bottom: 2rem; font-weight: 400; font-style: normal;" data-html-import-id="html-import-305" data-template-id="p-239" class="canva-text">¿Tienes un proyecto en mente? Estoy aquí para transformarlo en realidad.</p>
+    <div class="contact-info" data-html-import-id="html-import-306">
+     <div class="contact-item" data-html-import-id="html-import-307">
+      <span style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 16px;" data-html-import-id="html-import-308" data-template-id="span-240" class="canva-text">📧 EMAIL</span> <a href="mailto:estrellamendoz@gmail.com" data-html-import-id="html-import-309" data-template-id="a-241" class="canva-link" style="color: rgb(255, 133, 161); font-weight: 600; font-style: normal; font-size: 16px;">estrellamendoz@gmail.com</a>
+     </div>
+     <div class="contact-item" data-html-import-id="html-import-310">
+      <span style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 16px;" data-html-import-id="html-import-311" data-template-id="span-242" class="canva-text">💼 LINKEDIN</span> <a href="https://www.linkedin.com/in/brillit-mendoza-sanchez-309331150/" target="_blank" data-html-import-id="html-import-312" data-template-id="a-243" class="canva-link" style="color: rgb(255, 133, 161); font-weight: 600; font-style: normal; font-size: 16px;">Ver perfil</a>
+     </div>
+     <div class="contact-item" data-html-import-id="html-import-313">
+      <span style="color: rgb(255, 133, 161); font-weight: 700; font-style: normal; font-size: 16px;" data-html-import-id="html-import-314" data-template-id="span-244" class="canva-text">📱 TELÉFONO</span> <a href="tel:+51908790434" data-html-import-id="html-import-315" data-template-id="a-245" class="canva-link" style="color: rgb(255, 133, 161); font-weight: 600; font-style: normal; font-size: 16px;">+51 908 790 434</a>
+     </div>
+    </div>
+    <div class="contact-cta" data-html-import-id="html-import-316">
+     <a href="mailto:estrellamendoz@gmail.com" class="cta-button canva-link" data-html-import-id="html-import-317" data-template-id="a-246" style="background: rgb(255, 133, 161); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">MANDAME UN MENSAJE →</a>
+    </div>
+    <div class="footer-credit canva-container" data-html-import-id="html-import-318" data-template-id="div-247" style="color: rgb(153, 153, 153); font-size: 14px;">
+     <p data-html-import-id="html-import-319" data-template-id="p-248" class="canva-text" style="color: rgb(153, 153, 153); font-weight: 400; font-style: normal; font-size: 16px;">BRILLIT MENDOZA</p>
+     <p data-html-import-id="html-import-320" data-template-id="p-249" class="canva-text" style="color: rgb(153, 153, 153); font-weight: 400; font-style: normal; font-size: 16px;">Estrategia + Creatividad + Resultados</p>
+    </div>
+   </section>
+  </main>
+  <script data-html-import-id="html-import-321">
+        // Carrusel de casos de éxito
+        const caseSlides = document.querySelectorAll('.case-slide');
+        const caseDots = document.querySelector('.case-dots');
+        let currentCase = 0;
+        caseSlides.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.type = 'button'; dot.className = 'case-dot' + (index === 0 ? ' is-active' : '');
+            dot.setAttribute('aria-label', `Ver caso ${index + 1}`);
+            dot.addEventListener('click', () => showCase(index));
+            caseDots.appendChild(dot);
+        });
+        function showCase(index) {
+            currentCase = (index + caseSlides.length) % caseSlides.length;
+            caseSlides.forEach((slide, i) => slide.classList.toggle('is-active', i === currentCase));
+            caseDots.querySelectorAll('.case-dot').forEach((dot, i) => dot.classList.toggle('is-active', i === currentCase));
+        }
+        document.getElementById('case-prev').addEventListener('click', () => showCase(currentCase - 1));
+        document.getElementById('case-next').addEventListener('click', () => showCase(currentCase + 1));
+
+        // Smooth scroll para los enlaces
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animación de entrada para elementos
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+  <script src="/_sdk/92570d8e491862b9.editing_sdk.js" integrity="sha512-FgTgBgZOGUl1XBrojWdmYvV2Ka+jYLWeeIrMhp1Q1xMV3FJfF+VJFjO6hw+EDGnXYa+zMZXNIP5UYLxGsdfP6g=="></script>
+ 
+</body></html>
